@@ -1,0 +1,12 @@
+<tr *ngIf="vendeuse" >
+  <td>{{vendeuse.id}} </td>
+  <td>{{vendeuse.nomcomplet}}</td>
+  <td>{{vendeuse.tel}}</td>
+  <td> <span class="text-danger"  >{{somme}}</span> </td>
+
+ <td>
+    <button *ngIf="vendeuse.id" (click)="onDetailVendeuse(vendeuse.id)"  class="btn btn-outline-info">Details
+    </button>
+  </td>
+
+</tr>

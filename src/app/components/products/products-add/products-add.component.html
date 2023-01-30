@@ -1,0 +1,123 @@
+
+<div class="container">
+  <div class="card mb-4">
+    <div class="card-header">
+      <div class="d-flex justify-content-center">
+        <h2>
+          Nouveau produit
+        </h2>
+
+      </div>
+    </div>
+  </div>
+    <ng-container *ngIf="productFormGroup" >
+      <form [formGroup]="productFormGroup">
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label for="">Nom complet</label>
+              <input type="text" formControlName="nomcomplet" class="form-control"
+               [ngClass]="{'is-invalid':submitted && productFormGroup.controls['nomcomplet'].errors}" >
+              <div *ngIf="submitted && productFormGroup.controls['nomcomplet'].errors " class="invalid-feedback">
+                <p class="alert" *ngIf="productFormGroup.controls['nomcomplet'].errors['required']" >
+                  Le nom est requis
+                </p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="">Quantité</label>
+              <input type="number"   formControlName="quantite" class="form-control"
+              [ngClass]="{'is-invalid':submitted && productFormGroup.controls['quantite'].errors}" >
+              <div *ngIf="submitted && productFormGroup.controls['quantite'].errors" class="invalid-feedback">
+                <p class="alert" *ngIf="productFormGroup.controls['quantite'].errors['required']" >
+                  La quantité est requise
+                </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="">Unité </label>
+              <select   formControlName="unite" class="form-control"
+              [ngClass]="{'is-invalid':submitted && productFormGroup.controls['unite'].errors}" >
+                <option value="sac">sac </option>
+                <option value="paquet">paquet </option>
+                <option value="carton">carton </option>
+                <option value="pièce" defaultSelected="pièce"  >pièce </option>
+              </select>
+
+              <div *ngIf="submitted && productFormGroup.controls['unite'].errors" class="invalid-feedback">
+                <p class="alert" *ngIf="productFormGroup.controls['unite'].errors['required']" >
+                  L'unité est requise
+                </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="">Quantité contenu</label>
+              <input type="number"   formControlName="quantitecontenanceparunite" class="form-control"
+              [ngClass]="{'is-invalid':submitted && productFormGroup.controls['quantitecontenanceparunite'].errors}" >
+              <div *ngIf="submitted && productFormGroup.controls['quantitecontenanceparunite'].errors" class="invalid-feedback">
+                <p class="alert" *ngIf="productFormGroup.controls['quantitecontenanceparunite'].errors['required']" >
+                  La quantité contenu est requise
+                </p>
+              </div>
+            </div>
+
+
+
+
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label for="">Quantité de rupture du stock</label>
+              <input type="number"   formControlName="quantiterupture" class="form-control"
+              [ngClass]="{'is-invalid':submitted && productFormGroup.controls['quantiterupture'].errors}" >
+              <div *ngIf="submitted && productFormGroup.controls['quantiterupture'].errors" class="invalid-feedback">
+                <p class="alert" *ngIf="productFormGroup.controls['quantiterupture'].errors['required']" >
+                  La quantité de rupture est requise
+                </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="">Prix d'achat</label>
+              <input type="number"   formControlName="prixachat" class="form-control"
+              [ngClass]="{'is-invalid':submitted && productFormGroup.controls['prixachat'].errors}" >
+              <div *ngIf="submitted && productFormGroup.controls['prixachat'].errors" class="invalid-feedback">
+                <p class="alert" *ngIf="productFormGroup.controls['prixachat'].errors['required']" >
+                  Le prix achat est requis
+                </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="">Prix de vente</label>
+              <input type="number"   formControlName="prixvente" class="form-control"
+              [ngClass]="{'is-invalid':submitted && productFormGroup.controls['prixvente'].errors}" >
+              <div *ngIf="submitted && productFormGroup.controls['prixvente'].errors" class="invalid-feedback">
+                <p class="alert" *ngIf="productFormGroup.controls['prixvente'].errors['required']" >
+                  Le prix de vente est requis
+                </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="">Prix du prestataire</label>
+              <input type="number"   formControlName="prixprestataire" class="form-control"
+              [ngClass]="{'is-invalid':submitted && productFormGroup.controls['prixprestataire'].errors}" >
+              <div *ngIf="submitted && productFormGroup.controls['prixprestataire'].errors" class="invalid-feedback">
+                <p class="alert" *ngIf="productFormGroup.controls['prixprestataire'].errors['required']" >
+                  Le prix du prestataire est requis
+                </p>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+        <div class="form-group d-flex justify-content-center">
+          <input type="button" value="Valider" (click)="onSaveProduct()" class="btn btn-sm btn-outline-info" >
+        </div>
+      </form>
+    </ng-container>
+
+
+  </div>

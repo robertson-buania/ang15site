@@ -27,10 +27,17 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/soft-ui-dashboard/assets/css/nucleo-icons.css",
+              "node_modules/soft-ui-dashboard/assets/css/nucleo-svg.css",
+              "node_modules/soft-ui-dashboard/assets/css/soft-ui-dashboard.css"
             ],
             "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+              "node_modules/soft-ui-dashboard/assets/js/core/popper.min.js",
+              "node_modules/soft-ui-dashboard/assets/js/core/bootstrap.min.js",
+              "node_modules/soft-ui-dashboard/assets/js/plugins/smooth-scrollbar.min.js",
+              "node_modules/soft-ui-dashboard/assets/js/soft-ui-dashboard.js",
+              "node_modules/soft-ui-dashboard/assets/js/plugins/chartjs.min.js",
+              "node_modules/soft-ui-dashboard/assets/js/plugins/Chart.extension.js"
             ]
           },
           "configurations": {
@@ -38,8 +45,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",

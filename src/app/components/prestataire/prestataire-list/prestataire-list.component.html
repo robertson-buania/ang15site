@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="card mb-4">
+    <div class="card-header">
+      
+    </div>
+  </div>
+  <ng-container *ngIf="prestatairesDataInput$ | async as result" [ngSwitch]="result.dataState" >
+    <ng-container *ngSwitchCase="result.dataState==DataStateEnum.LOADINg" >
+      Loading...
+    </ng-container>
+    <ng-container *ngSwitchCase="result.dataState==DataStateEnum.ERROR">
+      <div class="alert alert-danger">
+        {{result.errorMessage}}
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="result.dataState==DataStateEnum.LOADED">
+
+      <div class="container" *ngIf="result.data" >
+        <table class="table table-hover ">
+          <tr>
+            <th>N°</th>
+            <th>Nom complet</th>
+            <th>Téléphone</th>
+            <th>Fonction</th>
+            <th>Charge actuelle</th>
+
+          </tr>
+          <app-prestataire-item style="display:contents ;"
+          *ngFor="let v of result.data"
+          [prestataire]="v"
+           ></app-prestataire-item>
+
+        </table>
+      </div>
+    </ng-container>
+
+
+
+  </ng-container>
+</div>

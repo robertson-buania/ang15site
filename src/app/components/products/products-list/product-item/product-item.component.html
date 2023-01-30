@@ -1,0 +1,17 @@
+<tr *ngIf="product" >
+  <td>{{product.id}} </td>
+  <td>{{product.nomproduit.nom}}</td>
+  <td>{{product.quantite}}</td>
+  <td>{{product.prixachat}}</td>
+  <td>{{product.prixvente}}</td>
+  <td>{{product.prixprestataire}}</td>
+
+ <td>
+    <button *ngIf="product.id" (click)="onDetailProduct(product.id)"  class="btn btn-outline-info">Details
+    </button>
+  </td>
+  <td>
+    <button *ngIf="product.id" (click)="onUpdateProduct(product.id)"  class="btn btn-outline-warning">Mod
+    </button>
+  </td>
+</tr>

@@ -1,0 +1,78 @@
+<tr *ngIf="achatdto" >
+  <td>
+      <div class="d-flex px-1 py-1">
+          <div class="d-flex flex-column justify-content-center">
+              <h6 class="mb-0 text-sm"> <p>{{achatdto.utilisateur_prenom}}</p>  </h6>
+          </div>
+      </div>
+  </td>
+<td>
+  <div class="d-flex px-1 py-1">
+
+    <div class="d-flex flex-column justify-content-center">
+      <h6 class="mb-0 text-sm"> <p>{{achatdto.datecreation}} </p>  </h6>
+    </div>
+  </div>
+</td>
+  <td>
+      <div class="d-flex px-1 py-1">
+
+          <div class="d-flex flex-column justify-content-center">
+              <h6 class="mb-0 text-sm"> <p> {{achatdto.montant}} Fc</p>  </h6>
+          </div>
+      </div>
+  </td>
+<td>
+  <div class="avatar-group mt-2">
+    <h6 class="mb-0 text-sm">{{achatdto.reference}}</h6>
+  </div>
+</td>
+
+<td>
+  <div class="avatar-group mt-2">
+
+      <div class="table-responsive">
+          <table class="table table-hover table-secondary align-items-center mb-0">
+
+
+                  <tbody *ngIf="achatdto.produitachats" >
+
+
+
+                      <tr *ngFor="let prod of achatdto.produitachats"  >
+                          <td>
+                              <div class="d-flex px-2 py-1">
+
+                                  <div class="d-flex flex-column justify-content-center">
+                                      <h6 class="mb-0 text-sm"> <p>{{prod.nomproduit?.nom}}</p>  </h6>
+                                  </div>
+                              </div>
+                          </td>
+
+
+                          <td>
+                              <div class="avatar-group mt-2">
+                                  <h6 class="mb-0 text-sm">{{prod.prix}}</h6>
+                              </div>
+                          </td>
+                          <td>
+                            <div class="avatar-group mt-2">
+                                <h6 class="mb-0 text-sm">{{prod.quantite}}</h6>
+                            </div>
+                        </td>
+
+                          <td class="align-middle text-center text-sm">
+                              <h6 class="mb-0 text-sm">{{prod.prix*prod.quantite}}</h6>
+                          </td>
+                      </tr>
+
+
+                  </tbody>
+
+          </table>
+      </div>
+  </div>
+</td>
+
+
+</tr>

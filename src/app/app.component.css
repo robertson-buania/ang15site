@@ -1,0 +1,192 @@
+/* @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+ * {
+	 font-family: 'Open Sans', sans-serif;
+	 box-sizing: border-box;
+	 color: #333;
+	 font-size: 100%;
+	 line-height: 1.5;
+}
+ body {
+	 background: #9fcedf;
+	 margin: 0;
+}
+ nav {
+	 --duration: .5s;
+	 --easing: ease-in-out;
+	 position: relative;
+	 width: 220px;
+	 margin: 20px;
+}
+ nav ol {
+	 list-style-type: none;
+	 margin: 0;
+	 padding: 0;
+}
+ nav li {
+	 margin: -4px 0 0 0;
+}
+ nav a {
+	 display: block;
+	 text-decoration: none;
+	 background: #fff;
+	 transform-origin: 0 0;
+	 transition: transform var(--duration) var(--easing), color var(--duration) var(--easing);
+	 transition-delay: var(--delay-out);
+	 border-radius: 4px;
+	 padding: 1em 1.52em;
+}
+ nav a:hover {
+	 background: #efefef;
+}
+ nav .sub-menu a {
+	 font-size: .9em;
+	 color: #666666;
+	 border-left: 2em solid white;
+	 padding: .75em;
+	 background: linear-gradient(to right,#ddd 2px,#fff 2px);
+}
+ nav .sub-menu a:hover {
+	 background: linear-gradient(to right,#ddd 2px,#efefef 2px);
+}
+ nav header {
+	 font-weight: 600;
+	 display: block;
+	 background: rgba(255,255,255,0.5);
+	 transform-origin: 0 0;
+	 transition: transform var(--duration) var(--easing), color var(--duration) var(--easing);
+	 transition-delay: var(--delay-out);
+	 border-radius: 4px;
+	 padding: 1em 1.52em;
+}
+ nav header span {
+	 border: none;
+	 background: transparent;
+	 font-size: 1.5em;
+	 padding: 0;
+	 cursor: pointer;
+	 line-height: 1;
+	 float: right;
+}
+ nav footer button {
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 border: none;
+	 padding: calc(1em - 2px);
+	 width: 100%;
+	 transform-origin: 0 0;
+	 transition: transform var(--duration) var(--easing);
+	 transition-delay: calc(var(--duration) + (.1s * (var(--count) / 2)));
+	 cursor: pointer;
+	 outline: none;
+	 background: #cdcdcd;
+	 opacity: 0;
+}
+ nav.closed a, nav.closed header {
+	 transform: translateY(calc(var(--top) * -1)) scaleY(0.1) scaleX(.2);
+	 transition-delay: var(--delay-in);
+	 color: transparent;
+}
+ nav.closed footer button {
+	 transition-delay: 0s;
+	 transform: scaleY(.7) scaleX(.2);
+}
+ */
+
+
+aside {
+  color: #fff;
+  width: 250px;
+  padding-left: 20px;
+  height: 100vh;
+  background-image: linear-gradient(30deg , #0048bd, #44a7fd);
+  border-top-right-radius: 80px;
+}
+
+aside a {
+  font-size: 12px;
+  color: #fff;
+  display: block;
+  padding: 12px;
+  padding-left: 30px;
+  text-decoration: none;
+  -webkit-tap-highlight-color:transparent;
+}
+
+aside a:hover {
+  color: #3f5efb;
+  background: rgb(243, 236, 236);
+  outline: none;
+  position: relative;
+  background-color: #fff;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+
+
+aside a i {
+  margin-right: 5px;
+}
+
+aside a:hover::after {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  bottom: 100%;
+  right: 0;
+  height: 35px;
+  width: 35px;
+  border-bottom-right-radius: 18px;
+  box-shadow: 0 20px 0 0 #fff;
+}
+.active{
+  color: #3f5efb !important;
+  background: #fff;
+  outline: none;
+  position: relative;
+  background-color: #fff;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+aside a:hover::before {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  top: 38px;
+  right: 0;
+  height: 35px;
+  width: 35px;
+  border-top-right-radius: 18px;
+  box-shadow: 0 -20px 0 0 #fff;
+}
+
+aside p {
+  margin: 0;
+  padding: 40px 0;
+}
+
+body {
+  font-family: 'Roboto';
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+}
+
+.social {
+  height: 0;
+}
+
+.social i:before {
+  width: 14px;
+  height: 14px;
+  font-size: 14px;
+  position: fixed;
+  color: #fff;
+  background: #0077B5;
+  padding: 10px;
+  border-radius: 50%;
+  top:5px;
+  right:5px;
+}
+

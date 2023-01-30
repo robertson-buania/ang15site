@@ -1,36 +1,78 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+
+<div class="row">
+  <div class="col-2">
+    <aside style="position:fixed ;" >
+      <div class="card d-flex flex-row mb-4 mt-1">
+        <div class="card-header ">
+          <img width="70px" src="../assets/featured_channel.jpg" alt="">
+        </div>
+        <h3>Cantine Scolaire</h3>
+      </div>
+
+      <a  (click)="onActive('commande')" [ngClass]="commande?'active':'' "   routerLink="commande">
+        <i class="fa fa-user-o" aria-hidden="true"></i>
+
+        <span style="font-size:1.2rem ;" >Commandes</span>
+      </a>
+      <a (click)="onActive('achat')" [ngClass]="achat?'active':''  " routerLink="achat">
+        <i class="fa fa-laptop" aria-hidden="true"></i>
+        <span style="font-size:1.2rem ;" >Achats</span>
+      </a>
+      <a (click)="onActive('produit')" [ngClass]="produit?'active':''  " routerLink="produits">
+        <i class="fa fa-laptop" aria-hidden="true"></i>
+        <span style="font-size:1.2rem ;" >Produits</span>
+      </a>
+      <a (click)="onActive('prestataire')" [ngClass]="prestataire?'active':''  " routerLink="vendeuse">
+        <i class="fa fa-clone" aria-hidden="true"></i>
+        <span style="font-size:1.2rem ;" >Prestataires</span>
+      </a>
+      <a (click)="onActive('employe')" [ngClass]="employe?'active':''  " routerLink="prestataire">
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+        <span style="font-size:1.2rem ;" >Employés</span>
+      </a>
+      <a (click)="onActive('stats')" [ngClass]="stats?'active':'' " routerLink="stats">
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+        <span style="font-size:1.2rem ;" >Statistiques</span>
+      </a>
+    </aside>
+  </div>
+  <div class="col-10">
+    <div class="mt-3">
+      <div style="height:5px !important;display:block;background-color:crimson"  >
+
+      </div>
+      <div >
+
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </div>
-</nav>
+</div>
+
+
+
+<!-- <nav class="menu">
+  <header>Menu <span></span></header>
+  <ol>
+      <li class="menu-item"><a href="#0">Home</a></li>
+      <li class="menu-item"><a href="#0">About</a></li>
+      <li class="menu-item">
+          <a href="#0">Widgets</a>
+          <ol class="sub-menu">
+              <li class="menu-item"><a href="#0">Big Widgets</a></li>
+              <li class="menu-item"><a href="#0">Bigger Widgets</a></li>
+              <li class="menu-item"><a href="#0">Huge Widgets</a></li>
+          </ol>
+      </li>
+      <li class="menu-item">
+          <a href="#0">Kabobs</a>
+          <ol class="sub-menu">
+              <li class="menu-item"><a href="#0">Shishkabobs</a></li>
+              <li class="menu-item"><a href="#0">BBQ kabobs</a></li>
+              <li class="menu-item"><a href="#0">Summer kabobs</a></li>
+          </ol>
+      </li>
+      <li class="menu-item"><a href="#0">Contact</a></li>
+  </ol>
+  <footer><button aria-label="Toggle Menu">Toggle</button></footer>
+</nav>  -->

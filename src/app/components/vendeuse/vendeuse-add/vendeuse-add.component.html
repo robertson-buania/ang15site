@@ -1,0 +1,108 @@
+
+<div class="container">
+  <div class="card mb-4">
+    <div class="card-header">
+      <div class="d-flex justify-content-center">
+        <h2>
+          Nouveau prestataire
+        </h2>
+
+      </div>
+    </div>
+  </div>
+    <ng-container *ngIf="vendeuseFormGroup" >
+      <form [formGroup]="vendeuseFormGroup">
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label for="">Nom complet</label>
+              <input type="text" formControlName="nomcomplet" class="form-control"
+               [ngClass]="{'is-invalid':submitted && vendeuseFormGroup.controls['nomcomplet'].errors}" >
+              <div *ngIf="submitted && vendeuseFormGroup.controls['nomcomplet'].errors " class="invalid-feedback">
+                <p class="alert" *ngIf="vendeuseFormGroup.controls['nomcomplet'].errors['required']" >
+                  Le nom est requis
+                </p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="">Téléphone</label>
+              <input type="tel"   formControlName="tel" class="form-control"
+              [ngClass]="{'is-invalid':submitted && vendeuseFormGroup.controls['tel'].errors}" >
+              <div *ngIf="submitted && vendeuseFormGroup.controls['tel'].errors" class="invalid-feedback">
+                <p class="alert" *ngIf="vendeuseFormGroup.controls['tel'].errors['required']" >
+                  La champ téléphone est requis
+                </p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="">Avenue</label>
+              <input type="text"   formControlName="avenue" class="form-control"
+              [ngClass]="{'is-invalid':submitted && vendeuseFormGroup.controls['avenue'].errors}" >
+              <div *ngIf="submitted && vendeuseFormGroup.controls['avenue'].errors" class="invalid-feedback">
+                <p class="alert" *ngIf="vendeuseFormGroup.controls['avenue'].errors['required']" >
+                  L'avenue contenu est requise
+                </p>
+              </div>
+            </div>
+
+
+
+
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label for="">Quartier</label>
+              <input type="text"   formControlName="quartier" class="form-control"
+              [ngClass]="{'is-invalid':submitted && vendeuseFormGroup.controls['quartier'].errors}" >
+              <div *ngIf="submitted && vendeuseFormGroup.controls['quartier'].errors" class="invalid-feedback">
+                <p class="alert" *ngIf="vendeuseFormGroup.controls['quartier'].errors['required']" >
+                  La quantité de rupture est requise
+                </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="">Numéro</label>
+              <input type="text"   formControlName="numero" class="form-control"
+              [ngClass]="{'is-invalid':submitted && vendeuseFormGroup.controls['numero'].errors}" >
+              <div *ngIf="submitted && vendeuseFormGroup.controls['numero'].errors" class="invalid-feedback">
+                <p class="alert" *ngIf="vendeuseFormGroup.controls['numero'].errors['required']" >
+                  Le  champ numero est requis
+                </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="">Commune</label>
+              <input type="text"   formControlName="commune" class="form-control"
+              [ngClass]="{'is-invalid':submitted && vendeuseFormGroup.controls['commune'].errors}" >
+              <div *ngIf="submitted && vendeuseFormGroup.controls['commune'].errors" class="invalid-feedback">
+                <p class="alert" *ngIf="vendeuseFormGroup.controls['commune'].errors['required']" >
+                  Le champ commune est requis
+                </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="">Reférence</label>
+              <input type="text"   formControlName="reference" class="form-control"
+              [ngClass]="{'is-invalid':submitted && vendeuseFormGroup.controls['reference'].errors}" >
+              <div *ngIf="submitted && vendeuseFormGroup.controls['reference'].errors" class="invalid-feedback">
+                <p class="alert" *ngIf="vendeuseFormGroup.controls['reference'].errors['required']" >
+                  Le champ reférence est requis
+                </p>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+        <div class="form-group d-flex justify-content-center">
+          <input type="button" value="Save" (click)="onSaveVendeuse()" class="btn btn-sm btn-outline-info" >
+        </div>
+      </form>
+    </ng-container>
+
+
+  </div>

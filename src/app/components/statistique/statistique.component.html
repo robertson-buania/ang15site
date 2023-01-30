@@ -1,0 +1,37 @@
+
+<nav class="navbar auto navbar-main navbar-expand-lg px-0 mx-4 mt-5 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+  <div class="container-fluid py-1 px-3">
+    <nav aria-label="breadcrumb">
+
+      <h3 class="font-weight-bolder mb-0">Statistiques</h3>
+    </nav>
+    <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+      <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+        <div class="input-group">
+       </div>
+      </div>
+
+    </div>
+  </div>
+</nav>
+<div  class="aut bg-gray-100 main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+
+  <div *ngIf="commandesListMoisActuel" class="container-fluid py-1">
+    <hr style="background-color:brown" >
+    <div class="row">
+      <div class="col-12 d-flex justify-content-end align-items-end">
+       <div class="mx-5 px-5">
+        <h3 class="mx-5" >Mois en cours </h3>
+       </div>
+      </div>
+    </div>
+
+    <app-statistique-nav [sommeAchats]="sommeAchats" [resteASolder]="resteASolder" [sommeNombre]="sommeNombre"  [sommevendeuse]="sommevendeuse"
+    [sommeRevenuglobal]="sommeRevenuglobal" [sommeglobal]="sommeglobal" [sommeprestataire]="sommeprestataire"  style="display:contents ;"
+      ></app-statistique-nav>
+ <!--    <app-statistique-middle  [commandesListMoisActuel]="commandesListMoisActuel" style="display:contents ;"></app-statistique-middle>
+    <app-statistique-global style="display:contents ;"></app-statistique-global>
+   --></div>
+
+</div>
+

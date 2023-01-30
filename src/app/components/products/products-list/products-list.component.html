@@ -1,0 +1,42 @@
+<div class="container">
+
+  <div class="card mb-4">
+    <div class="card-header">
+
+    </div>
+  </div>
+  <ng-container *ngIf="productsDataInput$ | async as result" [ngSwitch]="result.dataState" >
+    <ng-container *ngSwitchCase="result.dataState==DataStateEnum.LOADINg" >
+      Loading...
+    </ng-container>
+    <ng-container *ngSwitchCase="result.dataState==DataStateEnum.ERROR">
+      <div class="alert alert-danger">
+        {{result.errorMessage}}
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="result.dataState==DataStateEnum.LOADED">
+
+      <div style="max-height:vh ;position: relative;"  class="container" *ngIf="result.data" >
+        <table class="table table-hover ">
+          <tr>
+            <th>N°</th>
+            <th>Nom</th>
+            <th>Quantite</th>
+            <th>Prix d'achat</th>
+            <th>Prix de vente</th>
+            <th>Prix prestataire</th>
+          </tr>
+          <app-product-item style="display:contents ;"
+          *ngFor="let p of result.data"
+          [product]="p"
+           ></app-product-item>
+
+        </table>
+      </div>
+
+    </ng-container>
+
+
+
+  </ng-container>
+</div>

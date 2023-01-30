@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <button [ngClass]="prestataire?'bg-gray-100 text-primary':''" (click)="commande('vendeuse')" class="btn btn-info">
+      Prestataire
+    </button>
+    <button [ngClass]="vendeuse?'bg-gray-100 text-primary':''"   (click)="commande('prestataire')" class="btn btn-info">
+      Employé
+    </button>
+  </div>
+
+  <app-commande-vendeuse [ngClass]="vendeuse?'bg-gray-100':''" *ngIf="vendeuse" ></app-commande-vendeuse>
+  <app-commande-prestataire [ngClass]="prestataire?'bg-gray-100':''" class="bg bg-gradient-dark" *ngIf="prestataire"></app-commande-prestataire>
+</div>

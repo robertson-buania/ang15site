@@ -1,0 +1,173 @@
+<nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+  <div class="container-fluid py-1 px-3">
+    <nav aria-label="breadcrumb">
+
+      <h4 class="font-weight-bolder mb-0 text-3xl"> Détail de la commande N°: <span>{{commande$?.numero}} </span> </h4>
+    </nav>
+    <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+      <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+
+      </div>
+      <ul class="navbar-nav  justify-content-end">
+
+        <li class="nav-item d-flex align-items-center">
+          <a (click)="commandes()"class="btn btn-outline-primary btn-sm mb-0 me-3">Commandes</a>
+        </li>
+          <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                  <div class="sidenav-toggler-inner">
+                      <i class="sidenav-toggler-line"></i>
+                      <i class="sidenav-toggler-line"></i>
+                      <i class="sidenav-toggler-line"></i>
+                  </div>
+              </a>
+          </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="row my-4">
+  <div class="col-lg-12 col-md-12 mb-md-0 mb-4" *ngIf="commande$" >
+    <div class="card">
+      <div class="card-header pb-0">
+        <div class="row">
+
+          <div class="col-lg-5 col-6">
+            <h5>Date<span> {{commande$.datecreation}}  </span></h5>
+
+                  <div   style="display: flex" class="mb-3 col-sm-12">
+                      <span><strong>{{commande$.vendeuse}}</strong> </span>
+                  </div>
+                  <div   style="display: flex" class="mb-3 col-sm-12">
+                    <span><strong>{{commande$.prestataire}}</strong> </span>
+                </div>
+                  <div  style="display: flex" class="mb-3 col-sm-12">
+                      <span><strong>{{commande$.tel}}</strong> </span>
+
+                   </div>
+          </div>
+            <div class="col-lg-5 col-6">
+                <div class="d-flex flex-row  justify-content-center align-items-center">
+                    <p class="mx-5 d-flex">  <span class="mx-2" >Montant:</span> <strong style="font-size: x-large" class="btn btn-info  ">${{commande$.total}} </strong>  </p>
+                    <p class=" d-flex mx-5">  <span class="mx-2"  >Payé:</span> <strong style="font-size: x-large" class="btn  btn-success" >${{commande$.solde}}</strong></p>
+                    <p class="d-flex mx-5">  <span class="mx-2" >Différence:</span> <strong style="font-size: x-large" class="btn btn-danger">${{solde}} </strong></p>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+      </div>
+      <div style="display: flex" class="card-body px-0 pb-2">
+          <div class="col-md-8 col-sm-12">
+              <div class="table-responsive">
+                  <table class="table align-items-center mb-0">
+                      <thead>
+                      <tr>
+                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nom du produit</th>
+                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Code </th>
+                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Quantite </th>
+                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Prix </th>
+                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Total </th>
+                      </tr>
+                      </thead>
+
+                      <tbody>
+
+
+                          <tr *ngFor="let prod of commande$.produitcommandes" >
+                              <td>
+                                  <div class="d-flex px-2 py-1">
+
+                                      <div class="d-flex flex-column justify-content-center">
+                                          <h6 class="mb-0 text-sm"> <p> {{prod.nomproduit?.nom}} </p>  </h6>
+                                      </div>
+                                  </div>
+                              </td>
+
+
+                              <td>
+                                  <div class="avatar-group mt-2">
+                                      <h6 class="mb-0 text-sm">{{prod.quantite}}</h6>
+                                  </div>
+                              </td>
+                              <td>
+                                  <div class="avatar-group mt-2">
+                                      <h6 class="mb-0 text-sm">${{prod.prix}} {{prod.unite}}</h6>
+                                  </div>
+                              </td>
+
+
+
+                          </tr>
+
+
+
+                      </tbody>
+
+
+                  </table>
+              </div>
+          </div>
+          <div class="col-md-4 col-sm-12">
+              <div class="card">
+                  <div class="card-header">
+                      <h2 >Sommation </h2>
+
+                  </div>
+                  <div *ngIf="soldFormGroup"  class="card-body">
+                      <form id="soldForm" (ngSubmit)="solderCommande()" [formGroup]="soldFormGroup">
+
+                          <div class="row" >
+                              <p class="text-capitalize" >
+                                  <span >  Solde :</span>
+                                  <input formControlName="solde" min="0"  [max]="commande$.total-commande$.solde" m step="any" type="number"
+                                   class="form-control" [ngClass]="{'is-invalid':submitted && soldFormGroup.controls['solde'].errors}" >
+                                </p>
+                                <div *ngIf="submitted && soldFormGroup.controls['solde'].errors " class="invalid-feedback">
+                                    <p class="alert" *ngIf="soldFormGroup.controls['solde'].errors['required']" >
+                                      Le solde valide est requis
+                                    </p>
+                                  </div>
+                                  <div *ngIf="submitted && soldFormGroup.controls['solde'].errors " class="invalid-feedback">
+                                    <p class="alert" *ngIf="soldFormGroup.controls['solde'].errors['min']" >
+                                      Le solde valide est inférieur au solde requis
+                                    </p>
+                                  </div>
+                                  <div *ngIf="submitted && soldFormGroup.controls['solde'].errors " class="invalid-feedback">
+                                    <p class="alert" *ngIf="soldFormGroup.controls['solde'].errors['max']" >
+                                      Le solde valide est supérieur au solde requis
+                                    </p>
+                                  </div>
+
+                          </div>
+                      </form>
+
+                      <!--   <div class="row" >
+                          <p class="text-capitalize" >
+                              <span >  Différence :</span>
+                              <input disabled  type="number" id="difference" name="difference" class="form-control" >
+                          </p>
+                      </div>
+                      -->
+                      <div style="display: flex" class="col-lg-6 col-6">
+                          <button type="submit" form="soldForm"  class="btn bg-gradient-dark w-100  mb-2 mx-2">Solder</button>
+
+                      </div>
+
+                  </div>
+
+              </div>
+
+          </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

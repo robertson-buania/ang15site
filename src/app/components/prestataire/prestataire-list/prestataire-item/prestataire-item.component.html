@@ -1,0 +1,13 @@
+<tr *ngIf="prestataire" >
+  <td>{{prestataire.id}} </td>
+  <td>{{prestataire.nomcomplet}}</td>
+  <td>{{prestataire.tel}}</td>
+  <td>{{prestataire.fonction}}</td>
+  <td><span class="text-danger" >{{somme}}</span> </td>
+
+ <td>
+    <button *ngIf="prestataire.id" (click)="onDetailPrestataire(prestataire.id)"  class="btn btn-outline-info">Details
+    </button>
+  </td>
+
+</tr>

@@ -1,0 +1,43 @@
+<tr *ngIf="commandedto">
+  <td>
+    <div class="d-flex px-2 py-1">
+
+      <div class="d-flex flex-column justify-content-center">
+        <h6 class="mb-0 text-sm"> <p>{{commandedto.numero}} </p>  </h6>
+      </div>
+    </div>
+  </td>
+  <td>
+    <div class="avatar-group mt-2">
+      <h6 class="mb-0 text-sm">{{commandedto.vendeuse}} {{commandedto.prestataire}} </h6>
+    </div>
+  </td>
+    <td>
+        <div class="avatar-group mt-2">
+            <h6 class="mb-0 text-sm">{{commandedto.datecreation}} </h6>
+        </div>
+    </td>
+
+  <td>
+    <div class="avatar-group mt-2">
+      <h6 class="mb-0 text-sm">{{commandedto.total}} Fc</h6>
+    </div>
+  </td>
+  <td class="align-middle text-center text-sm">
+    <h6 class="mb-0 text-sm">{{commandedto.solde}}</h6>
+  </td>
+    <td class="align-middle text-center text-sm">
+        <h6 class="mb-0 text-sm">{{commandedto.total-commandedto.solde}}</h6>
+    </td>
+
+  <td class="align-middle">
+    <div class="progress-wrapper w-75 mx-auto">
+      <div *ngIf="commandedto.id"  class="d-flex justify-content-center align-items-center">
+
+        <a (click)="onDetailCommande(commandedto.id)" class="btn btn-info mx-1" >Details</a>
+
+      </div>
+
+    </div>
+  </td>
+</tr>

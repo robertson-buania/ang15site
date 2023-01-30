@@ -1,0 +1,56 @@
+
+
+<ng-container *ngIf="achatsDataInput$ | async as result" [ngSwitch]="result.dataState" >
+  <ng-container *ngSwitchCase="result.dataState==DataStateEnum.LOADINg" >
+    Loading...
+  </ng-container>
+  <ng-container *ngSwitchCase="result.dataState==DataStateEnum.ERROR">
+    <div class="alert alert-danger">
+      {{result.errorMessage}}
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="result.dataState==DataStateEnum.LOADED">
+    <div class="card">
+      <div class="card-header pb-0">
+        <div class="row">
+
+
+          <div class="mx-5 col-lg-6 col-7" *ngIf="result.data">
+            <h6>Nombre total <span>{{result.data.length}} </span></h6>
+
+          </div>
+
+        </div>
+      </div>
+      <div class="card-body px-0 pb-2" *ngIf="result.data">
+        <div class="table-responsive">
+          <table class="table align-items-center mb-0 table-hover table-info">
+            <thead>
+              <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Personnel</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date et heure</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Montant</th>
+               <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Référence</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Produits</th>
+              </tr>
+            </thead>
+           <tbody>
+            <app-achat-item  style="display: contents" style="display:contents ;"
+            *ngFor="let p of result.data"
+            [achatdto]="p">
+            </app-achat-item>
+            </tbody>
+
+
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </ng-container>
+
+
+
+</ng-container>
+
+

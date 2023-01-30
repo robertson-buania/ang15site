@@ -1,0 +1,118 @@
+
+<div class="container">
+  <div class="card mb-4">
+    <div class="card-header">
+      <div class="d-flex justify-content-center">
+        <h2>
+          Nouvel employé
+        </h2>
+
+      </div>
+    </div>
+  </div>
+    <ng-container *ngIf="prestataireFormGroup" >
+      <form [formGroup]="prestataireFormGroup">
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label for="">Nom complet</label>
+              <input type="text" formControlName="nomcomplet" class="form-control"
+               [ngClass]="{'is-invalid':submitted && prestataireFormGroup.controls['nomcomplet'].errors}" >
+              <div *ngIf="submitted && prestataireFormGroup.controls['nomcomplet'].errors " class="invalid-feedback">
+                <p class="alert" *ngIf="prestataireFormGroup.controls['nomcomplet'].errors['required']" >
+                  Le nom est requis
+                </p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="">Téléphone</label>
+              <input type="tel"   formControlName="tel" class="form-control"
+              [ngClass]="{'is-invalid':submitted && prestataireFormGroup.controls['tel'].errors}" >
+              <div *ngIf="submitted && prestataireFormGroup.controls['tel'].errors" class="invalid-feedback">
+                <p class="alert" *ngIf="prestataireFormGroup.controls['tel'].errors['required']" >
+                  La champ téléphone est requis
+                </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="">Fonction</label>
+              <input type="text"   formControlName="fonction" class="form-control"
+              [ngClass]="{'is-invalid':submitted && prestataireFormGroup.controls['fonction'].errors}" >
+              <div *ngIf="submitted && prestataireFormGroup.controls['fonction'].errors" class="invalid-feedback">
+                <p class="alert" *ngIf="prestataireFormGroup.controls['fonction'].errors['required']" >
+                  La champ téléphone est requis
+                </p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="">Avenue</label>
+              <input type="text"   formControlName="avenue" class="form-control"
+              [ngClass]="{'is-invalid':submitted && prestataireFormGroup.controls['avenue'].errors}" >
+              <div *ngIf="submitted && prestataireFormGroup.controls['avenue'].errors" class="invalid-feedback">
+                <p class="alert" *ngIf="prestataireFormGroup.controls['avenue'].errors['required']" >
+                  L'avenue contenu est requise
+                </p>
+              </div>
+            </div>
+
+
+
+
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label for="">Quartier</label>
+              <input type="text"   formControlName="quartier" class="form-control"
+              [ngClass]="{'is-invalid':submitted && prestataireFormGroup.controls['quartier'].errors}" >
+              <div *ngIf="submitted && prestataireFormGroup.controls['quartier'].errors" class="invalid-feedback">
+                <p class="alert" *ngIf="prestataireFormGroup.controls['quartier'].errors['required']" >
+                  La quantité de rupture est requise
+                </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="">Numéro</label>
+              <input type="text"   formControlName="numero" class="form-control"
+              [ngClass]="{'is-invalid':submitted && prestataireFormGroup.controls['numero'].errors}" >
+              <div *ngIf="submitted && prestataireFormGroup.controls['numero'].errors" class="invalid-feedback">
+                <p class="alert" *ngIf="prestataireFormGroup.controls['numero'].errors['required']" >
+                  Le  champ numero est requis
+                </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="">Commune</label>
+              <input type="text"   formControlName="commune" class="form-control"
+              [ngClass]="{'is-invalid':submitted && prestataireFormGroup.controls['commune'].errors}" >
+              <div *ngIf="submitted && prestataireFormGroup.controls['commune'].errors" class="invalid-feedback">
+                <p class="alert" *ngIf="prestataireFormGroup.controls['commune'].errors['required']" >
+                  Le champ commune est requis
+                </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="">Reférence</label>
+              <input type="text"   formControlName="reference" class="form-control"
+              [ngClass]="{'is-invalid':submitted && prestataireFormGroup.controls['reference'].errors}" >
+              <div *ngIf="submitted && prestataireFormGroup.controls['reference'].errors" class="invalid-feedback">
+                <p class="alert" *ngIf="prestataireFormGroup.controls['reference'].errors['required']" >
+                  Le champ reférence est requis
+                </p>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+        <div class="form-group d-flex justify-content-center">
+          <input type="button" value="Valider" (click)="onSavePrestataire()" class="btn btn-sm btn-outline-info" >
+        </div>
+      </form>
+    </ng-container>
+
+
+  </div>

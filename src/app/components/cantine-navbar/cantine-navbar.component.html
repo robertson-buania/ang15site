@@ -1,0 +1,55 @@
+<div class="row bg-gray-100" style="width:100% !important ;">
+  <div class="col-12">
+    <!-- Navbar -->
+    <aside class="navbar navbar-expand-lg  blur blur-rounded top-0  z-index-3 shadow position-relative my-3 py-2 start-0 end-0 ">
+      <div class=" d-flex flex-column container-fluid">
+        <img width="100px" src="../../../assets/featured_channel.jpg" alt="" srcset="">
+        <a (click)="connec()"class=" navbar-brand font-weight-bolder ms-lg-0 ms-3 " routerLink="/">
+          Cantine Scolaire
+        </a>
+
+        <div class="d-flex flex-column collapse navbar-collapse" id="navigation">
+          <ul class="navbar-nav my-auto">
+           </ul>
+          <ul class="navbar-nav d-lg-block d-none">
+            <li  class=" my-4 nav-item bg-gray-100"  >
+              <a class="nav-link d-flex text-xxl align-items-center me-2 active"
+              aria-current="page" routerLink="produits"style="font-size:1.2rem !important ;">
+                <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
+               Produits
+              </a>
+            </li>
+
+            <li class="nav-item bg-gray-100  ">
+              <a class="nav-link me-2" routerLink="vendeuse">
+                Vendeuse
+              </a>
+            </li>
+            <li class="nav-item bg-gray-100  ">
+              <a class="nav-link me-2" routerLink="prestataire">
+                Prestataire
+              </a>
+            </li>
+            <li *ngIf="connect" class="nav-item bg-gray-100 " >
+              <a class="nav-link me-2" routerLink="achat">
+                Achat
+              </a>
+            </li>
+
+            <li class="nav-item bg-gray-100  ">
+              <a class="nav-link me-2" routerLink="commande">
+                Commandes
+              </a>
+            </li>
+            <li *ngIf="connect" class="nav-item bg-gray-100  ">
+              <a class="nav-link me-2" routerLink="stats">
+                Statistiques
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+    <!-- End Navbar -->
+  </div>
+</div>
